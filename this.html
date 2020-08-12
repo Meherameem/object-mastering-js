@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this</title>
+</head>
+<body>
+    <h1>this is not confused anymore</h1>
+    <p onclick="this.innerText = 'how dare you click me!!'">I am paragraph.Not for clicking.</p>
+    <script>
+            const myObj = {
+            name : "stupid",
+            getFullName : function(){
+                console.log(this);
+                return 'Mr.'+ this.name;
+                }
+            }
+            //myObj.getFullName();
+
+            const newObj = {
+                name : 'smart',
+            }
+            // newObj.getFullName = myObj.getFullName;  1 no line
+            // console.log(newObj.getFullName);
+            // newObj.getFullName();
+
+            function add(a, b){
+                console.log(this);
+                return a+b;
+            }
+            add(11, 12);//here in this add named function , this has been called but, there is nothing like 1 no linw,so it will give window
+            newObj.sum = add; //here newObj is present on the left side so the this will indicate newObj 
+            newObj.sum();
+    </script>
+</body>
+</html>
